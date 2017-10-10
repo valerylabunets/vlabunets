@@ -13,6 +13,15 @@
 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 </properties>
 
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.3</version>
+    <configuration>
+        <compilerVersion>1.8</compilerVersion>
+    </configuration>
+</plugin>
+
 <dependencies>
     <dependency>
         <groupId>org.hamcrest</groupId>
@@ -28,7 +37,34 @@
     </dependency>
 </dependencies>
 
+<build>
+<plugins>
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-checkstyle-plugin</artifactId>
+<version>2.17</version>
+<executions>
+<execution>
+<id>validate</id>
+<phase>validate</phase>
+<configuration>
+<configLocation>checkstyle.xml</configLocation>
+<encoding>UTF-8</encoding>
+<consoleOutput>true</consoleOutput>
+<failsOnError>true</failsOnError>
+<includeTestSourceDirectory>true</includeTestSourceDirectory>
+</configuration>
+<goals>
+<goal>check</goal>
+</goals>
+</execution>
+</executions>
+</plugin>
+</plugins>
+</build> 
+
 <modules>
-<module>chapter_001</module>
+    <module>chapter_001</module>
+    <module>chapter_002</module>
 </modules>
 </project>
