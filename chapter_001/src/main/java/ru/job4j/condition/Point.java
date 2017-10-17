@@ -54,8 +54,6 @@ public class Point {
      * @return is there a point on this function .
      */
     public boolean is(int a, int b) {
-        a = 0;
-        b = 1;
         if (y == a * x + b) {
             return true;
         } else {
