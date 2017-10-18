@@ -1,5 +1,5 @@
 /**
- * Package for max test.
+ * Package for max.
  *
  * @author Valery Labunets (mailto:vavilonw@gmail.com)
  * @version $Id$

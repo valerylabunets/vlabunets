@@ -1,5 +1,5 @@
 /**
-* Package for calculator task.
+* Package for calculator test.
 *
 * @author Valery Labunets (mailto:vavilonw@gmail.com)
 * @version $Id$

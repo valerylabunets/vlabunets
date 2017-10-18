@@ -1,5 +1,5 @@
 /**
- * Package for Point test.
+ * Package for condition test.
  *
  * @author Valery Labunets (mailto:vavilonw@gmail.com)
  * @version $Id$

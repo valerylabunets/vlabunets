@@ -1,5 +1,5 @@
 /**
- * Package for calculate test.
+ * Package for max test.
  *
  * @author Valery Labunets (mailto:vavilonw@gmail.com)
  * @version $Id$

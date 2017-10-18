@@ -1,5 +1,5 @@
 /**
- * Package for Point.
+ * Package for condition.
  *
  * @author Valery Labunets (mailto:vavilonw@gmail.com)
  * @version $Id$
