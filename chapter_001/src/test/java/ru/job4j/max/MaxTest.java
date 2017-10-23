@@ -18,8 +18,8 @@ public class MaxTest {
     @Test
     public void whenFirstLessSecond() {
         Max maxim = new Max();
-        int result = maxim.max();
-        int second = 0;
+        int result = maxim.max(0, 2);
+        int second = 2;
         int expected = second;
         assertThat(result, is(expected));
     }
@@ -29,18 +29,7 @@ public class MaxTest {
     @Test
     public void whenSecondLessFirst() {
         Max maxim = new Max();
-        int result = maxim.max();
-        int first = 0;
-        int expected = first;
-        assertThat(result, is(expected));
-    }
-    /**
-     * Test max of two.
-     */
-    @Test
-    public void whenItReturnsTheMaximumOfTwo() {
-        Max maxim = new Max();
-        int result = maxim.max(2, 1);
+        int result = maxim.max(2, 0);
         int first = 2;
         int expected = first;
         assertThat(result, is(expected));
@@ -51,9 +40,9 @@ public class MaxTest {
     @Test
     public void whenItReturnsTheMaximumOfThree() {
         Max maxim = new Max();
-        int result = maxim.max(2, 1, 3);
-        int third = 3;
-        int expected = third;
+        int result = maxim.maxThree(2, 0, 1);
+        int first = 2;
+        int expected = first;
         assertThat(result, is(expected));
     }
 }
