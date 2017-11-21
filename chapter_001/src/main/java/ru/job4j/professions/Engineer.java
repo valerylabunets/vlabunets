@@ -24,7 +24,7 @@ public class Engineer extends Profession {
      *
      * @return String.
      */
-    String project(Project project) {
+    String project() {
         return "Инженер " + super.getName() + " создает " + project;
     }
 }

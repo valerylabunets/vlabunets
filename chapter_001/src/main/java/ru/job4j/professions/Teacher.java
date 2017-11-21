@@ -29,7 +29,7 @@ public class Teacher extends Profession {
      *
      * @return String.
      */
-    String teach(Student student) {
+    String teach() {
         return "Учитель " + super.getName() + " учит " + student;
     }
     /**
