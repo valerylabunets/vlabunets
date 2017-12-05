@@ -49,17 +49,15 @@ public class Tracker {
      * @param item .
      */
     public void update(Item item) {
-        String id = item.getId();
-
-        for (int index = 0; index != this.position; index++) {
-//            item = items[index];
-            if (item != null && item.getId().equals(id)) {
-                this.items[index] = null;
+        if (item != null) {
+            String id = item.getId();
+            for (int index = 0; index != this.position; index++) {
+                if (item.getId().equals(id)) {
+                    this.items[index] = null;
+                    this.items[index] = item;
+                }
             }
         }
-        this.items[position] = item;
-
-
     }
     /**
      * Method delete - удаляет ячейку в массиве this.items.
@@ -67,9 +65,15 @@ public class Tracker {
      * @param item .
      */
     public void delete(Item item) {
-        item.getId();
-        this.items[position] = null;
+        if (item != null) {
+            String id = item.getId();
+            for (int index = 0; index < this.position; index++) {
+                if (this.items[index].getId().equals(id)) {
+                    this.items[index] = null;
+                }
+            }
         }
+    }
     /**
      * Method findAll - возвращает копию массива this.items без null элементов.
      *
@@ -77,38 +81,39 @@ public class Tracker {
      */
     public Item[] findAll() {
         Item[] result = new Item[this.position];
-        for (int index = 0; index != this.position; index++) {
-            if (items == null) {
-                result = null;
-               } else {
-                     result[index] = this.items[index];
-                 }
-
+        int count = 0;
+        for (int index = 0; index < this.position; index++) {
+             if (this.items[index] != null) {
+             result[count] = this.items[index];
+             count++;
+             }
         }
+        result = Arrays.copyOf(result, count);
         return result;
     }
-    /**
-     * Method findByName - элементы, у которых совпадает name, копирует в результирующий массив и возвращает его .
-     * @param key .
-     * @return result .
-     */
-    public Item[] findByName(String key) {
-        Item[] result = new Item[this.position];
-        int count = 0;
-        if (key != null) {
-            for (int index = 0; index < this.position; index++) {
-                String name = this.items[index].getName();
-                if (name.contains(key)) {
-                    result[count] = this.items[index];
-                    count++;
+        /**
+         * Method findByName - элементы, у которых совпадает name, копирует в результирующий массив и возвращает его .
+         * @param key .
+         * @return result .
+         */
+        public Item[] findByName(String key) {
+            Item[] result = new Item[this.position];
+            int count = 0;
+            if (key != null) {
+                for (int index = 0; index < this.position; index++) {
+                    String name = this.items[index].getName();
+                    if (name.contains(key)) {
+                        result[count] = this.items[index];
+                        count++;
+                    }
+                }
+                if (count != 0) {
+                    result = Arrays.copyOf(result, count);
                 }
             }
-            if (count != 0) {
-                result = Arrays.copyOf(result, count);
-            }
+            return result;
         }
-        return result;
-    }
+
     /**
      * Method findById - проверяет в цикле все элементы массива this.items, сравнивая id с аргументом String id и возвращает найденный Item.
      * Если Item не найден - возвращает null.

@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 /**
  * Test.
  *
@@ -48,11 +48,14 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item("test1", "testDescription", 123L);
         Item item1 = new Item("test2", "testDescription", 1234L);
-        // Добавляем заявку в трекер. Теперь в объект проинициализирован id.
+        Item item2 = new Item("test3", "testDescription", 12345L);
         tracker.add(item);
         tracker.add(item1);
+        tracker.add(item2);
         tracker.delete(item1);
-        assertThat(tracker.findAll()[0], is(item));
+        Item[] rst = tracker.findAll();
+        Item[] expected = {item, item2};
+        assertThat(rst, is(expected));
 
     }
     /**
@@ -62,13 +65,14 @@ public class TrackerTest {
     public void whenReturnsCopyArrayWithoutNull() {
         Tracker tracker = new Tracker();
         Item item = new Item("test1", "testDescription", 123L);
-        Item item1 = new Item(null, null, 0);
-
+        Item item2 = new Item("test2", "testDescription", 1234L);
         // Добавляем заявки в трекер. Теперь в объект проинициализирован id.
         tracker.add(item);
-        tracker.add(item1);
-        tracker.findAll();
-        assertThat(tracker.findAll() [0], is(item));
+        tracker.add(item2);
+        Item[] rst = tracker.findAll();
+        Item[] expected = {item, item2};
+        assertThat(rst, is(expected));
+
 
     }
     /**
