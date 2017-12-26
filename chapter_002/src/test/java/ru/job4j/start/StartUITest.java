@@ -1,10 +1,15 @@
 package ru.job4j.start;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import ru.job4j.tracker.Input;
 import ru.job4j.tracker.Item;
 import ru.job4j.tracker.StubInput;
 import ru.job4j.tracker.Tracker;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -17,6 +22,24 @@ import static org.junit.Assert.*;
  * @since 0.1
  */
 public class StartUITest {
+
+    // поле содержит дефолтный вывод в консоль.
+    private final PrintStream stdout = System.out;
+    // буфер для результата.
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    @Before
+    public void loadOutput() {
+        System.out.println("execute before method");
+        System.setOut(new PrintStream(this.out));
+    }
+
+    @After
+    public void backOutput() {
+        System.setOut(this.stdout);
+        System.out.println("execute after method");
+    }
+
     /**
      * Test unit ADD .
      */
