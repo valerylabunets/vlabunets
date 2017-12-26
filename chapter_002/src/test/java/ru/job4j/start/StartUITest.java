@@ -22,7 +22,6 @@ import static org.junit.Assert.*;
  * @since 0.1
  */
 public class StartUITest {
-
     // поле содержит дефолтный вывод в консоль.
     private final PrintStream stdout = System.out;
     // буфер для результата.
@@ -39,7 +38,6 @@ public class StartUITest {
         System.setOut(this.stdout);
         System.out.println("execute after method");
     }
-
     /**
      * Test unit ADD .
      */
