@@ -1,5 +1,10 @@
-package ru.job4j.tracker;
-
+package ru.job4j.models;
+/**
+ * Item.
+ * @author Valeriy Labunets (vavilonw@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 public class Item {
 
     private String id;
@@ -8,12 +13,24 @@ public class Item {
     public long created;
     public String[] comments;
 
-    public Item(String name, String desc, long created) {
+
+//    public Item(String name, String desc, long created) {
+//        this.name = name;
+//        this.desc = desc;
+//        this.created = created;
+//        this.comments = comments;
+//    }
+
+    public Item(String name, String desc) {
         this.name = name;
         this.desc = desc;
-        this.created = created;
-        this.comments = comments;
     }
+
+    public Item() {
+    }
+
+
+
 
     public String getName() {
         return name;

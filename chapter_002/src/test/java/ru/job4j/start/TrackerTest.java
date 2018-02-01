@@ -1,6 +1,8 @@
-package ru.job4j.tracker;
+package ru.job4j.start;
 
 import org.junit.Test;
+import ru.job4j.models.Item;
+import ru.job4j.start.Tracker;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -18,7 +20,7 @@ public class TrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDesc", 123L);
+        Item item = new Item("test1", "testDesc");
         tracker.add(item);
         assertThat(tracker.findAll()[0], is(item));
     }
@@ -28,11 +30,11 @@ public class TrackerTest {
     @Test
     public void whenUpdateNameThenReturnNewName() {
         Tracker tracker = new Tracker();
-        Item previous = new Item("test1", "testDesc", 123L);
+        Item previous = new Item("test1", "testDesc");
         // Добавляем заявку в трекер. Теперь в объект проинициализирован id.
         tracker.add(previous);
         // Создаем новую заявку.
-        Item next = new Item("test2", "testDesc", 1234L);
+        Item next = new Item("test2", "testDesc");
         // Проставляем старый id из previous, который был сгенерирован выше.
         next.setId(previous.getId());
         // Обновляем заявку в трекере.
@@ -46,9 +48,9 @@ public class TrackerTest {
     @Test
     public void whenDeleteItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDescription", 123L);
-        Item item1 = new Item("test2", "testDescription", 1234L);
-        Item item2 = new Item("test3", "testDescription", 12345L);
+        Item item = new Item("test1", "testDescription");
+        Item item1 = new Item("test2", "testDescription");
+        Item item2 = new Item("test3", "testDescription");
         tracker.add(item);
         tracker.add(item1);
         tracker.add(item2);
@@ -64,8 +66,8 @@ public class TrackerTest {
     @Test
     public void whenReturnsCopyArrayWithoutNull() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDescription", 123L);
-        Item item2 = new Item("test2", "testDescription", 1234L);
+        Item item = new Item("test1", "testDescription");
+        Item item2 = new Item("test2", "testDescription");
         // Добавляем заявки в трекер. Теперь в объект проинициализирован id.
         tracker.add(item);
         tracker.add(item2);
@@ -81,9 +83,9 @@ public class TrackerTest {
     @Test
     public void whenTheSameNamesCopiedToTheNewArrayAndReturnsIt() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDescription", 123L);
-        Item item1 = new Item("test1", "testDescription", 1234L);
-        Item item2 = new Item("test2", "testDescription", 12345L);
+        Item item = new Item("test1", "testDescription");
+        Item item1 = new Item("test1", "testDescription");
+        Item item2 = new Item("test2", "testDescription");
         tracker.add(item);
         tracker.add(item1);
         tracker.add(item2);
@@ -98,9 +100,9 @@ public class TrackerTest {
     @Test
     public void whenItFindsTheIdThenItReturnsItOtherwiseReturnsNull() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDescription", 123L);
-        Item item1 = new Item("test1", "testDescription", 1234L);
-        Item item2 = new Item("test2", "testDescription", 12345L);
+        Item item = new Item("test1", "testDescription");
+        Item item1 = new Item("test1", "testDescription");
+        Item item2 = new Item("test2", "testDescription");
         tracker.add(item);
         tracker.add(item1);
         tracker.add(item2);

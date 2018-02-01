@@ -1,4 +1,6 @@
-package ru.job4j.tracker;
+package ru.job4j.start;
+
+import ru.job4j.models.Item;
 
 import java.util.Arrays;
 
@@ -46,18 +48,25 @@ public class Tracker {
     /**
      * Method update - заменяет ячейку в массиве.
      *
-     * @param item .
+     * @param fresh .
      */
-    public void update(Item item) {
-        if (item != null) {
-            String id = item.getId();
-            for (int index = 0; index != this.position; index++) {
-                if (item.getId().equals(id)) {
-                    this.items[index] = null;
-                    this.items[index] = item;
-                }
+    public void update(Item fresh) {
+        for (int index = 0; index != items.length; ++index) {
+            Item item = items[index];
+            if (item != null && item.getId().equals(fresh.getId())) {
+                items[index] = fresh;
+                break;
             }
         }
+//        if (item != null) {
+//            String id = item.getId();
+//            for (int index = 0; index != this.position; index++) {
+//                if (item.getId().equals(id)) {
+//                    this.items[index] = null;
+//                    this.items[index] = item;
+//                }
+//            }
+//        }
     }
     /**
      * Method delete - удаляет ячейку в массиве this.items.
@@ -68,7 +77,7 @@ public class Tracker {
         if (item != null) {
             String id = item.getId();
             for (int index = 0; index < this.position; index++) {
-                if (this.items[index].getId().equals(id)) {
+                if (item != null && this.items[index].getId().equals(id)) {
                     this.items[index] = null;
                 }
             }
@@ -102,7 +111,7 @@ public class Tracker {
             if (key != null) {
                 for (int index = 0; index < this.position; index++) {
                     String name = this.items[index].getName();
-                    if (name.contains(key)) {
+                    if (key != null && name.contains(key)) {
                         result[count] = this.items[index];
                         count++;
                     }

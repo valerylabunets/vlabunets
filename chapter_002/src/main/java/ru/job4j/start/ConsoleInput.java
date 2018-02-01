@@ -1,5 +1,10 @@
-package ru.job4j.tracker;
-
+package ru.job4j.start;
+/**
+ * ConsoleInput.
+ * @author Valeriy Labunets (vavilonw@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 import java.util.Scanner;
 
 public class ConsoleInput implements Input {
