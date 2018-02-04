@@ -13,6 +13,24 @@ public class StubInput implements Input {
         this.answers = answers;
     }
     public String ask(String question) {
-        return answers[position++];
+        return this.answers[this.position++];
+    }
+
+    public int ask(String question, int[] range){
+        int key  = Integer.valueOf(this.ask(question));
+        boolean exist = false;
+
+        for (int value: range){
+            if (value == key){
+                exist = true;
+                break;
+            }
+        }
+        if (exist) {
+            return key;
+        } else {
+            throw new MenuOutException("Out of range menu");
+        }
+//        return key;
     }
 }
