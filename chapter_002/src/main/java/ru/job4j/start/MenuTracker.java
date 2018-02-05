@@ -61,17 +61,17 @@ public class MenuTracker {
         this.actions[6] = new ExitMemu();
     }
 
-    public int[] getMenuRange(){
+    public int[] getMenuRange() {
         int[] range = new int[this.actions.length];
         int count = 0;
-        for (count = 0; count < this.actions.length; count++){
-            if (this.actions[count] != null){
-                range[count] = count+1;
-            }else{
+        for (count = 0; count < this.actions.length; count++) {
+            if (this.actions[count] != null) {
+                range[count] = count + 1;
+            } else {
                 break;
             }
         }
-        range = Arrays.copyOf(range, count+1);
+        range = Arrays.copyOf(range, count + 1);
 
         return range;
     }

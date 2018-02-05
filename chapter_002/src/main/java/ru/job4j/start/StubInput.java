@@ -16,12 +16,12 @@ public class StubInput implements Input {
         return this.answers[this.position++];
     }
 
-    public int ask(String question, int[] range){
+    public int ask(String question, int[] range) {
         int key  = Integer.valueOf(this.ask(question));
         boolean exist = false;
 
-        for (int value: range){
-            if (value == key){
+        for (int value: range) {
+            if (value == key) {
                 exist = true;
                 break;
             }

@@ -29,16 +29,11 @@ public class StartUI {
         this.menu.fillActions();
 //        this.tracker = tracker;
     }
-    public StartUI(Input input) {
-    }
+
     /**
      * Основой цикл программы.
      */
     public void init() {
-//        Tracker tracker = new Tracker();
-//        MenuTracker menu = new MenuTracker(this.input, tracker);
-//        menu.add(new Exit(this));
-//        menu.fillActions();
         do {
             menu.show();
 //            String answer = this.ui.ask("Выберети номер пункта меню программы");
@@ -46,7 +41,6 @@ public class StartUI {
 //            int key = Integer.valueOf(input.ask("Select:"));
             menu.select(input.ask("Select: ", menu.getMenuRange()));
         } while (!menu.exit()/*"y".equals(this.input.ask("Exit?(y): "))*/);
-//        while (!menu.exit())
 //        while (this.working)
     }
     /**
@@ -54,7 +48,8 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
-        Input input = new ValidateInput();
+//        new StartUI( new ValidateInput( new ConsoleInput()), new Tracker() ).init();
+        Input input = new ValidateInput(new ConsoleInput());
         StartUI ui = new StartUI(input, new  MenuTracker(input, new Tracker()));
         ui.init();
 //        new StartUI(new ConsoleInput(), new Tracker()).init();
