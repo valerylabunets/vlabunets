@@ -10,9 +10,6 @@ import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-//import static org.hamcrest.MatcherAssert.assertThat;
-//import static org.hamcrest.Matchers.is;
-
 public class ValidateInputTest {
 
     private final ByteArrayOutputStream mem = new ByteArrayOutputStream();

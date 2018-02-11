@@ -30,7 +30,6 @@ public class ConsoleInput implements Input {
         } else {
             throw new MenuOutException("Out of range menu");
         }
-//        return key;
     }
 
 }

@@ -72,16 +72,10 @@ public class MenuTracker {
             }
         }
         range = Arrays.copyOf(range, count + 1);
-
         return range;
     }
 
-//    public void add(UserAction action) {
-//        this.actions[this.position++] = action;
-//    }
-
     public void select(int key) {
-        // Смещаем ключ на единицу, т.к. для пользователя отсчет начинается от 1, а в нутри от 0
         key--;
         if (key >= 0 && key < this.actions.length) {
             this.actions[key].execute(this.input, this.tracker);
@@ -189,16 +183,13 @@ public class MenuTracker {
             System.out.println(("---------- Find item by name ---------"));
             String name = input.ask("Please enter the task's name: ");
             Item[] item = tracker.findByName(name);
-//            Task task = tracker.findById(StubInput);
             System.out.println("Did you search for this item?: " + name);
-//            System.out.printf("Task id: %s name: %s, description: %s \n", item/*, item.getName(), item.getDesc()*/);
         }
         @Override
         public String info() {
             return String.format("%s. %s", this.key(), "Find item by name");
         }
     }
-
 
     private class ExitMemu implements UserAction {
          @Override

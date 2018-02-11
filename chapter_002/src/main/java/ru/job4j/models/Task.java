@@ -6,12 +6,8 @@ package ru.job4j.models;
  * @since 0.1
  */
 public class Task extends Item {
-
-
     public Task(String name, String desc) {
-//        super(name,desc);
         this.name = name;
         this.desc = desc;
-//        this.created = created;
     }
 }
