@@ -13,16 +13,15 @@ import java.util.Arrays;
  * @since 0.1
  */
 
-class AddItem implements UserAction {
+class AddItem extends BaseAction {
 
-    public AddItem(Input input, Tracker tracker) {
-    }
     public AddItem() {
     }
-    @Override
+
     public int key() {
         return 1;
     }
+
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println(("---------- Add new Item ---------"));
@@ -32,7 +31,7 @@ class AddItem implements UserAction {
         System.out.println("Added task: ");
         System.out.printf("Task id: %s name: %s, description: %s \n", item.getId(), item.getName(), item.getDesc());
     }
-    @Override
+
     public String info() {
         return String.format("%s. %s", this.key(), "Add new Item");
     }
@@ -52,13 +51,16 @@ public class MenuTracker {
     }
 
     public void fillActions() {
-        this.actions[0] = new AddItem();
-        this.actions[1] = new UpdateItem();
-        this.actions[2] = new DeletItem();
-        this.actions[3] = new ShowItems();
-        this.actions[4] = new FindById();
-        this.actions[5] = new FindByName();
-        this.actions[6] = new ExitMemu();
+        this.actions[position++] = new AddItem();
+        this.actions[position++] = new UpdateItem();
+        this.actions[position++] = new DeletItem();
+        this.actions[position++] = new ShowItems();
+        this.actions[position++] = new FindById();
+        this.actions[position++] = new FindByName();
+        this.actions[position++] = new ExitMemu();
+    }
+    public void addAction(UserAction action) {
+        this.actions[position++] = action;
     }
 
     public int[] getMenuRange() {
@@ -94,7 +96,7 @@ public class MenuTracker {
         return this.exit;
     }
 
-    private class UpdateItem implements UserAction {
+    private class UpdateItem extends BaseAction {
 
         @Override
         public int key() {
@@ -118,7 +120,7 @@ public class MenuTracker {
             return String.format("%s. %s", this.key(), "Edit item");
         }
     }
-    private class DeletItem implements UserAction {
+    private class DeletItem extends BaseAction {
         @Override
         public int key() {
             return 3;
@@ -136,7 +138,7 @@ public class MenuTracker {
             return String.format("%s. %s", this.key(), "Delete item");
         }
     }
-    private static class ShowItems implements UserAction {
+    private static class ShowItems extends BaseAction {
         @Override
         public int key() {
             return 4;
@@ -154,7 +156,7 @@ public class MenuTracker {
         }
     }
 
-    private class FindById implements UserAction {
+    private class FindById extends BaseAction {
         @Override
         public int key() {
             return 5;
@@ -173,7 +175,7 @@ public class MenuTracker {
         }
     }
 
-    private class FindByName implements UserAction {
+    private class FindByName extends BaseAction {
         @Override
         public int key() {
             return 6;
@@ -191,7 +193,7 @@ public class MenuTracker {
         }
     }
 
-    private class ExitMemu implements UserAction {
+    private class ExitMemu extends BaseAction {
          @Override
         public int key() {
             return 7;

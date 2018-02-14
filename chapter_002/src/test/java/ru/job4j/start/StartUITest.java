@@ -53,7 +53,7 @@ public class StartUITest {
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Input input = new StubInput(new String[]{"1", "test1", "desc", "7"});
         StartUI ui = new StartUI(input, new  MenuTracker(input, this.tracker));
-        ui.init();     //вызываем метод init()
+        ui.init();
         assertThat(tracker.findAll()[0].getName(), is("test1"));
     }
 
