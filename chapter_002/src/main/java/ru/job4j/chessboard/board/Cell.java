@@ -32,7 +32,7 @@ public class Cell {
      * Give Cell's name
      * @return String name
      */
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
@@ -48,7 +48,12 @@ public class Cell {
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
-//        @Override
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+    //        @Override
 //    public boolean equals(Object obj) {
 //            if (obj instanceof Cell) {
 //                return obj != null && this.getX().equals(((Cell) obj).getX()) && this.getY().equals(((Cell) obj).getY());

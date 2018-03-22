@@ -28,28 +28,24 @@ public class Bishop extends Figure {
         int index = 0;
         Cell[] result = cells;
         if (Math.abs(sx - dx) == Math.abs(sy - dy)) {
-            if (sx - dx > 0 & sy - dy > 0) {
-                for (index = 0; index <= size; index++) {
-                    cells[index] = new Cell(position.getName(),sx - index, sy - index);
-                    index++;
+            if (sx - dx > 0 && sy - dy > 0) {
+                for (index = 0; index < size; index++) {
+                    cells[index] = new Cell(position.getName(), sx - index, sy - index);
                 }
             }
-            if (sx - dx > 0 & dy - sy > 0) {
-                 for (index = 0; index <= size; index++) {
-                     cells[index] = new Cell(position.getName(),sx - index, sy + index);
-                     index++;
+            if (sx - dx > 0 && dy - sy > 0) {
+                 for (index = 0; index < size; index++) {
+                     cells[index] = new Cell(position.getName(), sx - index, sy + index);
                     }
             }
-            if (dx - sx > 0 & sy - dy > 0) {
-                for (index = 0; index <= size; index++) {
-                    cells[index] = new Cell(position.getName(),sx + index, sy - index);
-                    index++;
+            if (dx - sx > 0 && sy - dy > 0) {
+                for (index = 0; index < size; index++) {
+                    cells[index] = new Cell(position.getName(), sx + index, sy - index);
                 }
             }
-            if (dx - sx > 0 & dy - sy > 0) {
-                for (index = 0; index <= size; index++) {
-                    cells[index] = new Cell(position.getName(),sx + index, sy + index);
-                    index++;
+            if (dx - sx > 0 && dy - sy > 0) {
+                for (index = 0; index < size; index++) {
+                    cells[index] = new Cell(position.getName(), sx + index, sy + index);
                 }
             }
 
