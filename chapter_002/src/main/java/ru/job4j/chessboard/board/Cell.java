@@ -17,7 +17,7 @@ public class Cell {
 
     /**
      * Constructor.
-     * Create Cell with name and coordinats on board.
+     * Create Cell with name and coordinats  on board.
      * @param name Cell's name
      * @param x    х-coordinate on board
      * @param y    у-coordinate on board
