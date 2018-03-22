@@ -14,7 +14,6 @@ public class Cell {
     private String name;
     private int x;
     private int y;
-
     /**
      * Constructor.
      * Create Cell with name and coordinats  on board.
@@ -27,7 +26,6 @@ public class Cell {
         this.x = x;
         this.y = y;
     }
-
     /**
      * Give Cell's name
      * @return String name
@@ -53,12 +51,4 @@ public class Cell {
     public int hashCode() {
         return super.hashCode();
     }
-    //        @Override
-//    public boolean equals(Object obj) {
-//            if (obj instanceof Cell) {
-//                return obj != null && this.getX().equals(((Cell) obj).getX()) && this.getY().equals(((Cell) obj).getY());
-//            }
-//            return false;
-//        }
-
-}
+  }

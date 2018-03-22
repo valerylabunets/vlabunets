@@ -13,10 +13,10 @@ public class Bishop extends Figure {
    public Bishop(Cell position) {
        super(position);
    }
-    /*
-    * Метод должен работать так. dest - задает  ячейку, куда следует пойти. Если фигура может туда пойти. то Вернуть массив ячеек. которые должна пройти фигура.
-    * Если фигура туда пойти не может. выбросить исключение ImposibleMoveException
-     */
+   /**
+    * method way.
+    * @return  result.
+    */
     @Override
     public Cell[] way(Cell source, Cell dest) {
         int sx = source.getX();
@@ -48,21 +48,17 @@ public class Bishop extends Figure {
                     cells[index] = new Cell(position.getName(), sx + index, sy + index);
                 }
             }
-
         } else {
             new ImposibleMoveException();
         }
         return result;
     }
-
     @Override
     public Figure copy(Cell dest) {
         return new Bishop(dest);
     }
-
     @Override
     public boolean isFigureOnThisCell(Figure figure, Cell source) {
         return true;
     }
-
 }

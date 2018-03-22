@@ -17,12 +17,20 @@ public abstract class Figure {
     public Figure(Cell position) {
         this.position = position;
     }
-
-
+   /**
+    * abstract method way.
+    *
+    */
     public abstract Cell[] way(Cell source, Cell dest) throws ImposibleMoveException;
-
+    /**
+     * abstract method isFigureOnThisCell.
+     *
+     */
     public abstract boolean isFigureOnThisCell(Figure figure, Cell source);
-
+    /**
+     * abstract method copy.
+     *
+     */
     public abstract Figure copy(Cell dest);
 
     public class ImposibleMoveException extends Exception {

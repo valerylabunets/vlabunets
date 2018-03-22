@@ -24,20 +24,17 @@ public class Board {
         this.figures[figureIndex++] = figure;
         return figure;
     }
-    /*
-    * metode move.
-    * Метод должен проверить Что в заданной ячейки есть фигура. если нет. то выкинуть исключение
-    * Если фигура есть. Проверить может  ли она так двигаться. Если нет то упадет исключение
-    * Проверить что полученный путь. не занят фигурами. Если занят выкинуть исключение
-    * Если все отлично. Записать в ячейку новое новое положение Figure figure.copy(Cell dest)
-     */
+    /**
+    * methode move.
+    * @return result.
+    */
     public boolean move(Cell source, Cell dest) throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException, Figure.ImposibleMoveException {
         boolean result = false;
         for (Figure figure : figures) {
-            if (figure != null & !figure.isFigureOnThisCell(figure, source)) {
+            if (figure != null && !figure.isFigureOnThisCell(figure, source)) {
                 throw new FigureNotFoundException("no figure in cell");
             }
-            if (figure.isFigureOnThisCell(figure, source)) {
+            if (figure != null && figure.isFigureOnThisCell(figure, source)) {
                 Cell[] way = new Cell[0];
                 try {
                     way = figure.way(source, dest);
@@ -54,6 +51,7 @@ public class Board {
             } else {
                 throw new ImpossibleMoveException("the figure can not go there");
                 }
+                break;
         }
         return result;
     }
