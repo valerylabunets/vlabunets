@@ -25,7 +25,7 @@ public class Bishop extends Figure {
         int dy = dest.getY();
         int size = Math.abs(sx - dx);
         Cell[] cells = new Cell[size];
-        int index = 0;
+        int index;
         Cell[] result = cells;
         if (Math.abs(sx - dx) == Math.abs(sy - dy)) {
             if (sx - dx > 0 && sy - dy > 0) {

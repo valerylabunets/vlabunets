@@ -17,7 +17,7 @@ public abstract class Figure {
     public Figure(Cell position) {
         this.position = position;
     }
-   /**
+    /**
     * abstract method way.
     *
     */

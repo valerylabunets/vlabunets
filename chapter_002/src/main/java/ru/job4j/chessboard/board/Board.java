@@ -13,15 +13,15 @@ import ru.job4j.chessboard.figures.King;
  */
 
 public class Board {
-    private Figure figure;
-    private Cell sourse;
-    private Cell dest;
+//    private Figure figure;
+//    private Cell sourse;
+//    private Cell dest;
     Figure[] figures = new Figure[32];
-    private int figureIndex = 0;
+    private int position = 0;
     public Board() {
     }
     public Figure add(Figure figure) {
-        this.figures[figureIndex++] = figure;
+        this.figures[position++] = figure;
         return figure;
     }
     /**
@@ -56,21 +56,18 @@ public class Board {
         return result;
     }
 
-    public static class ImpossibleMoveException extends Exception {
+    class ImpossibleMoveException extends Exception {
         public ImpossibleMoveException(String s) {
-
-        }
+       }
     }
 
-    public static class OccupiedWayException extends Exception {
+    class OccupiedWayException extends Exception {
         public OccupiedWayException(String s) {
-
         }
     }
 
-    public static class FigureNotFoundException extends Exception {
+    class FigureNotFoundException extends Exception {
         public FigureNotFoundException(String s) {
-
         }
     }
 }

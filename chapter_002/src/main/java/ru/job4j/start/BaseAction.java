@@ -14,7 +14,6 @@ public abstract class BaseAction implements UserAction {
 
     }
 
-
     @Override
     public int key() {
         return this.key;

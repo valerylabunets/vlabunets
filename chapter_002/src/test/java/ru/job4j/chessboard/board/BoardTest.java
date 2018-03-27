@@ -31,7 +31,7 @@ public class BoardTest {
      * Test move .
      */
     @Test
-    public void whenCellContainsFigure() throws Board.FigureNotFoundException, Board.OccupiedWayException, Figure.ImposibleMoveException, Board.ImpossibleMoveException {
+    public void whenCellContainsFigure() throws Figure.ImposibleMoveException, Board.OccupiedWayException, Board.ImpossibleMoveException, Board.FigureNotFoundException {
         Board board = new Board();
         Bishop bishop = new Bishop(new Cell("C1", 3, 1));
         board.add(bishop);
