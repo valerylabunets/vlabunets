@@ -13,9 +13,6 @@ import ru.job4j.chessboard.figures.King;
  */
 
 public class Board {
-//    private Figure figure;
-//    private Cell sourse;
-//    private Cell dest;
     Figure[] figures = new Figure[32];
     private int position = 0;
     public Board() {

@@ -10,13 +10,16 @@ import ru.job4j.chessboard.board.Cell;
  */
 
 public class Bishop extends Figure {
-   public Bishop(Cell position) {
-       super(position);
-   }
-   /**
-    * method way.
-    * @return  result.
-    */
+
+    public Bishop(Cell position) {
+        super(position);
+    }
+
+    /**
+     * method way.
+     *
+     * @return result.
+     */
     @Override
     public Cell[] way(Cell source, Cell dest) {
         int sx = source.getX();
@@ -27,38 +30,43 @@ public class Bishop extends Figure {
         Cell[] cells = new Cell[size];
         int index;
         Cell[] result = cells;
+        int deltax = Integer.compare(sx, dx);
+        int deltay = Integer.compare(sy, dy);
         if (Math.abs(sx - dx) == Math.abs(sy - dy)) {
-            if (sx - dx > 0 && sy - dy > 0) {
+            if (deltax == 1 && deltay == 1) {
                 for (index = 0; index < size; index++) {
                     cells[index] = new Cell(position.getName(), sx - index, sy - index);
+                    }
                 }
-            }
-            if (sx - dx > 0 && dy - sy > 0) {
-                 for (index = 0; index < size; index++) {
+            if (deltax == 1 && deltay == -1) {
+                for (index = 0; index < size; index++) {
                      cells[index] = new Cell(position.getName(), sx - index, sy + index);
                     }
-            }
-            if (dx - sx > 0 && sy - dy > 0) {
-                for (index = 0; index < size; index++) {
-                    cells[index] = new Cell(position.getName(), sx + index, sy - index);
                 }
-            }
-            if (dx - sx > 0 && dy - sy > 0) {
+            if (deltax == -1 &&  deltay == 1) {
                 for (index = 0; index < size; index++) {
-                    cells[index] = new Cell(position.getName(), sx + index, sy + index);
+                     cells[index] = new Cell(position.getName(), sx + index, sy - index);
+                    }
                 }
+            if (deltax == -1 && deltay == -1) {
+                for (index = 0; index < size; index++) {
+                     cells[index] = new Cell(position.getName(), sx + index, sy + index);
+                    }
+                }
+            } else {
+                new ImposibleMoveException();
             }
-        } else {
-            new ImposibleMoveException();
-        }
         return result;
     }
+
     @Override
     public Figure copy(Cell dest) {
         return new Bishop(dest);
     }
+
     @Override
     public boolean isFigureOnThisCell(Figure figure, Cell source) {
         return true;
     }
 }
+
