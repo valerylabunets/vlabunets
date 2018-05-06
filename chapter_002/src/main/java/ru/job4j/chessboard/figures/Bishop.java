@@ -30,31 +30,20 @@ public class Bishop extends Figure {
         Cell[] cells = new Cell[size];
         int index;
         Cell[] result = cells;
-        int[] deltamove = {Integer.compare(sx, dx), Integer.compare(sy, dy)};
+        int deltax = Integer.compare(sx, dx);
+        int deltay = Integer.compare(sy, dy);
         if (Math.abs(sx - dx) == Math.abs(sy - dy)) {
-            if (deltamove == new int[] {1, 1}) {
-                for (index = 0; index < size; index++) {
-                    cells[index] = new Cell(position.getName(), sx - index, sy - index);
-                    }
+                for (index = 0; index < size; index = size) {
+                    cells[index] = new Cell(position.getName(), sx + deltax, sy + deltay);
                 }
-            if (deltamove == new int[] {1, -1}) {
-                for (index = 0; index < size; index++) {
-                     cells[index] = new Cell(position.getName(), sx - index, sy + index);
-                    }
-                }
-            if (deltamove == new int[] {-1, 1}) {
-                for (index = 0; index < size; index++) {
-                     cells[index] = new Cell(position.getName(), sx + index, sy - index);
-                    }
-                }
-            if (deltamove == new int[] {-1, -1}) {
-                for (index = 0; index < size; index++) {
-                     cells[index] = new Cell(position.getName(), sx + index, sy + index);
-                    }
-                }
+
             } else {
-                new ImposibleMoveException();
+               try {
+                   throw  new ImposibleMoveException();
+               }  catch (ImposibleMoveException e) {
+                   e.printStackTrace();
             }
+        }
         return result;
     }
 
