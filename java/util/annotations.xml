@@ -1,0 +1,5 @@
+<root>
+    <item name='java.util.LinkedList void add(int, E)'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>
