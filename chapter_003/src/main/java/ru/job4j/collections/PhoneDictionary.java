@@ -26,7 +26,16 @@ public class PhoneDictionary {
     public List<Person> find(String key) {
         List<Person> result = new ArrayList<>();
         for(Person i: persons) {
-            if (persons.equals(key)) {
+            if (key.equals(i.getName())) {
+                result.add(i);
+            }
+            if (key.equals(i.getSurname())) {
+                result.add(i);
+            }
+            if (key.equals(i.getPhone())) {
+                result.add(i);
+            }
+            if (key.equals(i.getAddress())) {
                 result.add(i);
             }
         }
