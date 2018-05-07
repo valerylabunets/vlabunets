@@ -33,7 +33,7 @@ public class Bishop extends Figure {
         int deltax = Integer.compare(sx, dx);
         int deltay = Integer.compare(sy, dy);
         if (Math.abs(sx - dx) == Math.abs(sy - dy)) {
-                for (index = 0; index < size; index = size) {
+                for (index = 0; index < size; index++) {
                     cells[index] = new Cell(position.getName(), sx + deltax, sy + deltay);
                 }
 
