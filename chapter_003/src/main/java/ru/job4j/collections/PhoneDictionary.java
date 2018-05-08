@@ -26,19 +26,13 @@ public class PhoneDictionary {
     public List<Person> find(String key) {
         List<Person> result = new ArrayList<>();
         for(Person i: persons) {
-            if (key.equals(i.getName())) {
+            if (i.getName().contains(key) || i.getSurname().contains(key)) {
                 result.add(i);
             }
-            if (key.equals(i.getSurname())) {
+            if (i.getAddress().contains(key) || i.getPhone().contains(key)) {
                 result.add(i);
             }
-            if (key.equals(i.getPhone())) {
-                result.add(i);
-            }
-            if (key.equals(i.getAddress())) {
-                result.add(i);
-            }
-        }
+         }
         return result;
     }
 }
